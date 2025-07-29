@@ -5,117 +5,154 @@
 body {
   margin: 0;
   font-family: "Orbitron", sans-serif;
-  color: #d9d9d9;
+  color: #e6e6e6;
+  background-color: #1e1e1e;
   min-height: 100vh;
-  background-color: #262626;
   display: flex;
   justify-content: center;
-  padding: 20px;
-  flex-direction: column;
   align-items: center;
+  padding: 24px;
 }
 
 .app-container {
   width: 100%;
-  max-width: 1000px;
-  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 80vh;
-  gap: 20px;
+  gap: 24px;
 }
 
 header {
   text-align: center;
-  margin-bottom: 20px;
-  width: 100%;
-  min-height: 100px;
+  margin-bottom: 32px;
 }
 
 header > h1 {
-  font-size: 2.5rem;
-  color: #bd11f1;
-  margin: 0;
+  font-size: 2.75rem;
+  color: #c715f2;
+  margin-bottom: 32px;
 }
 
 header > p {
-  font-size: 1.2rem;
-  color: #fffbfb;
-  margin: 10px 0;
+  font-size: 1.25rem;
+  color: #f5f5f5;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 header > p > span {
-  color: #f31e1e;
+  color: #ff4040;
+  font-weight: 600;
+}
+
+.game-rule {
+  font-size: 1.1rem;
+  color: #ff6666;
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+.game-instructions {
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 20px;
+  max-width: 600px;
+  width: 100%;
+}
+
+.game-instructions h2 {
+  margin-bottom: 12px;
+  font-size: 1.5rem;
+  color: #a3e7f8;
+}
+
+.game-instructions ul {
+  list-style: disc;
+  padding-left: 24px;
+}
+
+.game-instructions li {
+  margin-bottom: 10px;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #ececec;
+}
+
+.game-instructions strong {
+  color: #ffe066;
 }
 
 section.status {
-  background-color: #10a95b;
+  background-color: #12c66a;
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #fffbfb;
-  border-radius: 4px;
-  margin: 30px 0;
-  width: 50%;
-  min-height: 80px;
-  padding: 10px;
-  box-sizing: border-box;
+  color: #ffffff;
+  border-radius: 8px;
+  margin: 24px 0;
+  padding: 16px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 section.status > p {
-  font-size: 1.3rem;
-  margin: 5px;
-  padding: 2px;
+  font-size: 1.15rem;
+  margin: 8px 0;
 }
 
 section.status-lost {
-  background-color: #f31e1e;
+  background-color: #ff3333;
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #fffbfb;
-  border-radius: 4px;
-  margin: 30px 0;
-  width: 50%;
-  min-height: 80px;
-  padding: 10px;
-  box-sizing: border-box;
+  color: #ffffff;
+  border-radius: 8px;
+  margin: 24px 0;
+  padding: 16px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 section.status-lost > p {
-  font-size: 1.3rem;
-  margin: 5px;
-  padding: 2px;
+  font-size: 1.15rem;
+  margin: 8px 0;
   text-align: center;
 }
 
 section.status > h3 {
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   color: #ffffff;
-  margin: 5px 0;
+  margin: 8px 0;
+}
+
+section.status-lost > h3 {
+  text-align: center;
 }
 
 section.avengers-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 5px;
-  width: 100%;
-  min-height: 100px;
-  padding: 10px;
-  box-sizing: border-box;
+  gap: 8px;
 }
 
 span.avengers {
-  border-radius: 4px;
-  padding: 4px 8px;
-  position: relative;
-  transition: opacity 0.4s ease, transform 0.3s ease;
+  border-radius: 6px;
+  padding: 6px 12px;
+  background-color: #333333;
+  color: #ffffff;
+  transition: all 0.3s ease;
 }
 
 span.avengers.lost {
-  opacity: 0.3;
+  opacity: 0.4;
   transform: scale(0.95);
   filter: grayscale(100%);
 }
@@ -125,36 +162,43 @@ span.avengers.lost::before {
   position: absolute;
   top: 0;
   left: 0;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.4);
-  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 6px;
   pointer-events: none;
 }
 
-.farewell-message {
-  font-size: 0.8rem;
-  margin-top: 6px;
+section.losing-message {
+  font-size: 1.25rem;
+  color: #ff3333;
+  margin-top: 24px;
   text-align: center;
-  color: #f1f1f1;
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 4px 6px;
-  border-radius: 4px;
-  line-height: 1.3;
-  animation: fadeInUp 0.4s ease-in-out;
+  font-weight: 600;
+}
+
+.farewell-message {
+  font-size: 0.9rem;
+  margin-top: 8px;
+  text-align: center;
+  color: #f5f5f5;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 8px 12px;
+  border-radius: 6px;
+  line-height: 1.4;
+  animation: fadeInUp 0.5s ease-in-out;
+  max-width: 500px;
   width: 100%;
-  box-sizing: border-box;
-  position: relative;
 }
 
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
@@ -166,241 +210,237 @@ section.word {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 40px;
-  gap: 2px;
-  width: 100%;
-  min-height: 60px;
-  padding: 10px;
-  box-sizing: border-box;
+  margin-top: 32px;
+  gap: 4px;
 }
 
 section.word > .letter {
-  height: 50px;
-  width: 50px;
-  background-color: #323232;
+  height: 60px;
+  width: 60px;
+  background-color: #2a2a2a;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.5rem;
-  border-bottom: 1.5px solid #f9f4da;
+  font-size: 1.75rem;
+  border-bottom: 2px solid #f9f4da;
+  border-radius: 6px;
 }
 
 section.word > .missed-letters {
-  color: #f31e1e;
+  color: #ff3333;
 }
 
 section.alphabet {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  gap: 5px;
-  margin-top: 20px;
-  width: 100%;
-  min-height: 100px;
-  padding: 10px;
-  box-sizing: border-box;
+  gap: 8px;
+  margin-top: 24px;
+  max-width: 600px;
 }
 
 section.alphabet > button {
-  height: 40px;
-  width: 40px;
-  background-color: #ebd831;
+  height: 48px;
+  width: 48px;
+  background-color: #f0c105;
   border: 1px solid #f9f4da;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
 }
 
 section.alphabet > button:hover {
-  background-color: #e9c304;
+  background-color: #d9a404;
 }
 
 section.alphabet > button.correct {
-  background-color: #10a95b;
-  color: #fffbfb;
+  background-color: #12c66a;
+  color: #ffffff;
 }
 
 section.alphabet > button.wrong {
-  background-color: #f31e1e;
-  color: #fffbfb;
+  background-color: #ff3333;
+  color: #ffffff;
 }
 
 section.alphabet > button:disabled {
   cursor: not-allowed;
-  opacity: 0.7;
+  opacity: 0.6;
+  background-color: #555555;
 }
 
 .wrong-guesses-info {
   text-align: center;
-  margin-top: 20px;
-  font-size: 1.2rem;
-  width: 100%;
-  min-height: 30px;
-  padding: 10px;
-  box-sizing: border-box;
+  margin-top: 10px;
+  font-size: 1.15rem;
+  color: #e6e6e6;
 }
 
 section.new-game {
   display: flex;
   justify-content: center;
-  margin-top: 25px;
-  width: 100%;
-  min-height: 50px;
-  padding: 10px;
-  box-sizing: border-box;
+  margin-top: 32px;
 }
 
 section.new-game > button {
-  height: 40px;
-  width: 100px;
-  background-color: #1085a9;
+  height: 48px;
+  width: 120px;
+  background-color: #1098c4;
   border: none;
-  color: #fffbfb;
-  font-size: 1rem;
+  color: #ffffff;
+  font-size: 1.1rem;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+section.new-game > button:hover {
+  background-color: #0d7ea3;
 }
 
 @media (max-width: 768px) {
   header > h1 {
-    font-size: 2rem;
+    font-size: 2.25rem;
   }
 
   header > p {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
+  }
+
+  .game-rule {
+    font-size: 1rem;
+  }
+
+  .game-instructions h2 {
+    font-size: 1.3rem;
+  }
+
+  .game-instructions li {
+    font-size: 0.95rem;
   }
 
   section.status,
   section.status-lost {
-    width: 50%;
-    max-width: 90vw;
-    padding: 10px;
-    margin: 15px 0;
-    text-align: center;
-    border-radius: 4px;
-    min-height: 80px;
+    max-width: 95%;
+    padding: 12px;
+    margin: 16px 0;
   }
 
   section.status > p,
   section.status-lost > p {
-    font-size: 0.95rem;
-    line-height: 1.4;
-    padding: 0 5px;
-  }
-
-  section.status > h3 {
-    font-size: 0.95rem;
-  }
-
-  section.avengers-list {
-    gap: 4px;
-    min-height: 80px;
-  }
-
-  span.avengers {
-    font-size: 0.9rem;
-    padding: 4px 6px;
-  }
-
-  section.word > .letter {
-    height: 40px;
-    width: 40px;
-    font-size: 1.2rem;
-  }
-
-  section.alphabet > button {
-    height: 35px;
-    width: 35px;
-    font-size: 0.95rem;
-  }
-
-  .wrong-guesses-info {
     font-size: 1rem;
   }
 
-  section.new-game > button {
-    width: 90px;
+  section.status > h3 {
+    font-size: 1.15rem;
+  }
+
+  section.word > .letter {
+    height: 48px;
+    width: 48px;
+    font-size: 1.4rem;
+  }
+
+  section.alphabet > button {
+    height: 40px;
+    width: 40px;
     font-size: 0.95rem;
+  }
+
+  section.new-game > button {
+    width: 100px;
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 480px) {
   header > h1 {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
   }
 
   header > p {
     font-size: 0.95rem;
   }
 
+  .game-rule {
+    font-size: 0.9rem;
+  }
+
+  .game-instructions {
+    margin-top: 40px;
+    padding: 16px;
+  }
+
+  .game-instructions h2 {
+    font-size: 1.1rem;
+  }
+
+  .game-instructions li {
+    font-size: 0.85rem;
+  }
+
   section.status,
   section.status-lost {
-    width: 90%;
-    padding: 8px;
-    margin: 19px 0;
-    text-align: center;
-    border-radius: 4px;
-    min-height: 70px;
+    max-width: 100%;
+    padding: 10px;
+    margin: 12px 0;
   }
 
   section.status > p,
   section.status-lost > p {
-    font-size: 0.8rem;
-    line-height: 1.4;
+    font-size: 0.9rem;
   }
 
-  section.status > h3,
-  section.status-lost > h3 {
-    font-size: 0.8rem;
+  section.status > h3 {
+    font-size: 1rem;
   }
 
   span.avengers {
-    font-size: 0.8rem;
-    padding: 3px 5px;
+    font-size: 0.85rem;
+    padding: 4px 8px;
   }
 
   .farewell-message {
-    font-size: 0.6rem;
-    padding: 4px;
-    line-height: 1.2;
-    margin-top: 3px;
+    font-size: 0.75rem;
+    padding: 6px 10px;
   }
 
   section.word {
     flex-wrap: wrap;
-    gap: 2px;
-    min-height: 50px;
+    gap: 3px;
   }
 
   section.word > .letter {
-    height: 36px;
+    height: 30px;
     width: 26px;
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 
   section.alphabet {
-    gap: 4px;
-    padding: 0 10px;
-    min-height: 80px;
+    gap: 6px;
+    padding: 0 8px;
   }
 
   section.alphabet > button {
-    height: 32px;
-    width: 32px;
-    font-size: 0.85rem;
+    height: 36px;
+    width: 36px;
+    font-size: 0.9rem;
   }
 
   .wrong-guesses-info {
     font-size: 0.95rem;
-    min-height: 25px;
   }
 
   section.new-game > button {
-    width: 85px;
+    width: 90px;
     font-size: 0.9rem;
   }
 
-   .losing-message {
+  .losing-message {
+    font-size: 1rem;
     text-align: center;
   }
 }
