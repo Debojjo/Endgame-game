@@ -123,11 +123,8 @@ function App() {
         <section className="alphabet">{alphabetEls}</section>
         <br />
         {isGameLost && (
-          <section className="losing-message">
-            <div>
-              You reached the limit of wrong guesses 🫣
-            </div>
-          </section>
+              <p className="losing-message">You reached the limit of wrong guesses 🫣</p>
+          
         )}
         {isGameOver && (
           <section className="new-game">

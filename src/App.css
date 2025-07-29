@@ -6,35 +6,43 @@ body {
   margin: 0;
   font-family: "Orbitron", sans-serif;
   color: #d9d9d9;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #262626;
   display: flex;
   justify-content: center;
   padding: 20px;
+  flex-direction: column;
+  align-items: center;
 }
 
 .app-container {
   width: 100%;
   max-width: 1000px;
-  margin: 0 auto;
   padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 80vh;
+  gap: 20px;
 }
 
 header {
   text-align: center;
   margin-bottom: 20px;
+  width: 100%;
+  min-height: 100px;
 }
 
 header > h1 {
   font-size: 2.5rem;
   color: #bd11f1;
+  margin: 0;
 }
+
 header > p {
   font-size: 1.2rem;
   color: #fffbfb;
+  margin: 10px 0;
 }
 
 header > p > span {
@@ -48,8 +56,11 @@ section.status {
   align-items: center;
   color: #fffbfb;
   border-radius: 4px;
-  margin-block: 30px;
+  margin: 30px 0;
   width: 50%;
+  min-height: 80px;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 section.status > p {
@@ -65,9 +76,13 @@ section.status-lost {
   align-items: center;
   color: #fffbfb;
   border-radius: 4px;
-  margin-block: 30px;
+  margin: 30px 0;
   width: 50%;
+  min-height: 80px;
+  padding: 10px;
+  box-sizing: border-box;
 }
+
 section.status-lost > p {
   font-size: 1.3rem;
   margin: 5px;
@@ -78,6 +93,7 @@ section.status-lost > p {
 section.status > h3 {
   font-size: 1.25rem;
   color: #ffffff;
+  margin: 5px 0;
 }
 
 section.avengers-list {
@@ -85,6 +101,10 @@ section.avengers-list {
   flex-wrap: wrap;
   justify-content: center;
   gap: 5px;
+  width: 100%;
+  min-height: 100px;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 span.avengers {
@@ -148,6 +168,10 @@ section.word {
   align-items: center;
   margin-top: 40px;
   gap: 2px;
+  width: 100%;
+  min-height: 60px;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 section.word > .letter {
@@ -161,7 +185,7 @@ section.word > .letter {
   border-bottom: 1.5px solid #f9f4da;
 }
 
-section.word > .missed-letters{
+section.word > .missed-letters {
   color: #f31e1e;
 }
 
@@ -172,6 +196,10 @@ section.alphabet {
   align-items: center;
   gap: 5px;
   margin-top: 20px;
+  width: 100%;
+  min-height: 100px;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 section.alphabet > button {
@@ -206,12 +234,20 @@ section.alphabet > button:disabled {
   text-align: center;
   margin-top: 20px;
   font-size: 1.2rem;
+  width: 100%;
+  min-height: 30px;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 section.new-game {
   display: flex;
   justify-content: center;
   margin-top: 25px;
+  width: 100%;
+  min-height: 50px;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 section.new-game > button {
@@ -234,18 +270,15 @@ section.new-game > button {
     font-size: 1.5rem;
   }
 
-  header > div {
-    font-size: 0.85rem;
-  }
-
   section.status,
   section.status-lost {
     width: 50%;
     max-width: 90vw;
     padding: 10px;
-    margin-block: 15px;
+    margin: 15px 0;
     text-align: center;
     border-radius: 4px;
+    min-height: 80px;
   }
 
   section.status > p,
@@ -258,36 +291,37 @@ section.new-game > button {
   section.status > h3 {
     font-size: 0.95rem;
   }
-}
 
-section.avengers-list {
-  gap: 4px;
-}
+  section.avengers-list {
+    gap: 4px;
+    min-height: 80px;
+  }
 
-span.avengers {
-  font-size: 0.9rem;
-  padding: 4px 6px;
-}
+  span.avengers {
+    font-size: 0.9rem;
+    padding: 4px 6px;
+  }
 
-section.word > .letter {
-  height: 40px;
-  width: 40px;
-  font-size: 1.2rem;
-}
+  section.word > .letter {
+    height: 40px;
+    width: 40px;
+    font-size: 1.2rem;
+  }
 
-section.alphabet > button {
-  height: 35px;
-  width: 35px;
-  font-size: 0.95rem;
-}
+  section.alphabet > button {
+    height: 35px;
+    width: 35px;
+    font-size: 0.95rem;
+  }
 
-.wrong-guesses-info {
-  font-size: 1rem;
-}
+  .wrong-guesses-info {
+    font-size: 1rem;
+  }
 
-section.new-game > button {
-  width: 90px;
-  font-size: 0.95rem;
+  section.new-game > button {
+    width: 90px;
+    font-size: 0.95rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -303,9 +337,10 @@ section.new-game > button {
   section.status-lost {
     width: 90%;
     padding: 8px;
-    margin-block: 19px;
+    margin: 19px 0;
     text-align: center;
     border-radius: 4px;
+    min-height: 70px;
   }
 
   section.status > p,
@@ -334,6 +369,7 @@ section.new-game > button {
   section.word {
     flex-wrap: wrap;
     gap: 2px;
+    min-height: 50px;
   }
 
   section.word > .letter {
@@ -345,6 +381,7 @@ section.new-game > button {
   section.alphabet {
     gap: 4px;
     padding: 0 10px;
+    min-height: 80px;
   }
 
   section.alphabet > button {
@@ -355,10 +392,15 @@ section.new-game > button {
 
   .wrong-guesses-info {
     font-size: 0.95rem;
+    min-height: 25px;
   }
 
   section.new-game > button {
     width: 85px;
     font-size: 0.9rem;
+  }
+
+   .losing-message {
+    text-align: center;
   }
 }

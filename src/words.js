@@ -6,7 +6,7 @@ const words = [
   "quantum",
   "multiverse",
   "timeline",
-  "strange",
+  "Dr.Strange",
   "wanda",
   "vision",
   "kang",
