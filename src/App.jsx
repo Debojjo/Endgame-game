@@ -8,8 +8,12 @@ import Confetti from "react-confetti";
 import { useWindowSize } from "@react-hook/window-size";
 
 function App() {
-  const [currWord, setCurrWord] = useState(() => getRandomWord());
+  const [currWordObj, setCurrWordObj] = useState(() => getRandomWord());
+  const [currWord, setCurrWord] = useState(currWordObj.word);
+  const [hint, setHint] = useState(currWordObj.hint);
   const [guessedLetters, setGuessedLetters] = useState([]);
+  const [isGameStarted, setIsGameStarted] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(60);
 
   const alphabets = "abcdefghijklmnopqrstuvwxyz";
 
@@ -20,7 +24,8 @@ function App() {
   const isGameWon = currWord
     .split("")
     .every((letter) => guessedLetters.includes(letter));
-  const isGameLost = wrongGuesses >= 10;
+  const isGameLost = wrongGuesses >= 10 || timeLeft === 0;
+
   const isGameOver = isGameLost || isGameWon;
 
   const [width] = useWindowSize();
@@ -34,7 +39,24 @@ function App() {
     }
   }, [isGameOver]);
 
+  useEffect(() => {
+    if (!isGameStarted || isGameOver) return;
+
+    const timer = setInterval(() => {
+      setTimeLeft((prevTime) => {
+        if (prevTime <= 1) {
+          clearInterval(timer);
+          return 0;
+        }
+        return prevTime - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [isGameStarted, isGameOver]);
+
   function addLetters(letter) {
+    if (!isGameStarted || isGameOver) return;
     setGuessedLetters((prevGuessedLetters) =>
       prevGuessedLetters.includes(letter)
         ? prevGuessedLetters
@@ -43,8 +65,12 @@ function App() {
   }
 
   function newGame() {
-    setCurrWord(getRandomWord());
+    const newWordObj = getRandomWord();
+    setCurrWord(newWordObj.word);
+    setHint(newWordObj.hint);
     setGuessedLetters([]);
+    setTimeLeft(60);
+    setIsGameStarted(false);
   }
 
   const avengersList = Avengers.map((avenger, index) => {
@@ -129,13 +155,36 @@ function App() {
         </header>
 
         <section className="avengers-list">{avengersList}</section>
+
+        {!isGameStarted && !isGameOver && (
+          <section className="start-screen">
+            <button
+              className="start-btn"
+              onClick={() => setIsGameStarted(true)}
+            >
+              Start Game
+            </button>
+          </section>
+        )}
+
         <section className="word">{wordEls}</section>
+
+        {isGameStarted && !isGameLost && !isGameWon && (
+          <div className="hint-section">
+            <p className="hint-text">[Hint : {hint}]</p>
+          </div>
+        )}
+
+        {isGameStarted && !isGameOver && (
+          <div className="timer-display">Time Left :- {timeLeft} s</div>
+        )}
+
         <p className="wrong-guesses-info">
-          Wrong guesses: <span className="wrong-guesses">{wrongGuesses}</span>
+          Wrong guesses : <span className="wrong-guesses">{wrongGuesses}</span>
         </p>
         <section className="alphabet">{alphabetEls}</section>
         <br />
-        
+
         {isGameWon && (
           <section ref={resultRef} aria-live="polite" className="status">
             <h3>You Win🎊</h3>
@@ -144,8 +193,20 @@ function App() {
         )}
 
         {isGameLost && (
-          <section ref={resultRef} aria-live="polite" className="status-lost">
-            <h3>You Couldn't save Iron Man⚠️</h3>
+          <section
+            ref={resultRef}
+            aria-live="polite"
+            className={clsx("status-lost", {
+              "lost-by-time": timeLeft === 0,
+              "lost-by-guesses": timeLeft > 0,
+            })}
+          >
+            <h3>
+              {timeLeft === 0
+                ? "⏱️ Time’s up !"
+                : "❌ You reached the maximum number of incorrect guesses!"}
+            </h3>
+            <p>You couldn't save Iron Man ⚠️</p>
             <p>Click on New Game button to try again!</p>
           </section>
         )}

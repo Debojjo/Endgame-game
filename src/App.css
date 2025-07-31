@@ -141,6 +141,7 @@ section.avengers-list {
   flex-wrap: wrap;
   justify-content: center;
   gap: 8px;
+  margin-bottom: 10px;
 }
 
 span.avengers {
@@ -172,6 +173,42 @@ span.avengers.lost::before {
   border-radius: 6px;
   pointer-events: none;
 }
+
+.start-btn {
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background-color: #1098c4;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background 0.3s ease;
+  margin-top: 30px;
+  width: 200px;
+  height: 50px;
+}
+
+.start-btn:hover {
+  background-color: #0d7ea3;
+}
+
+.timer-display {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #f0c105;
+  margin: 10px 0 10px;
+  text-align: center;
+}
+
+.hint-text {
+  font-size: 1rem;
+  color: #f5f5f5;
+  margin-top: 12px;
+  text-align: center;
+}
+
 
 section.losing-message {
   font-size: 1.25rem;
@@ -210,7 +247,7 @@ section.word {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 32px;
+  margin-top: 10px;
   gap: 4px;
 }
 
@@ -273,7 +310,7 @@ section.alphabet > button:disabled {
 
 .wrong-guesses-info {
   text-align: center;
-  margin-top: 10px;
+  margin-top: 1px;
   font-size: 1.15rem;
   color: #e6e6e6;
 }
@@ -286,7 +323,7 @@ section.new-game {
 
 section.new-game > button {
   height: 48px;
-  width: 120px;
+  width: 220px;
   background-color: #1098c4;
   border: none;
   color: #ffffff;
@@ -397,10 +434,31 @@ section.new-game > button:hover {
   section.status > h3 {
     font-size: 1rem;
   }
+  section.status-lost > h3{
+    font-size: 0.9rem;
+  }
 
   span.avengers {
     font-size: 0.85rem;
     padding: 4px 8px;
+  }
+
+  .start-btn {
+    width: 100%;
+    font-size: 1rem;
+    padding: 12px;
+    height: 40px;
+    margin-bottom: 1px;
+  } 
+
+  .timer-display {
+    font-size: 1rem;
+    margin-top: 10px;
+  } 
+
+  .hint-text {
+    font-size: 0.9rem;
+    margin-top: 1px;
   }
 
   .farewell-message {
@@ -411,6 +469,7 @@ section.new-game > button:hover {
   section.word {
     flex-wrap: wrap;
     gap: 3px;
+    margin-top: 30px;
   }
 
   section.word > .letter {
